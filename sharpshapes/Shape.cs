@@ -8,7 +8,7 @@ using System.Drawing;
 
 namespace sharpshapes
 {
-    public abstract class Shape
+    abstract public class Shape
     {
       //Width, Height, Perimeter, Area, BorderColor, FillColor, NumberOfSides
       /// <summary>
@@ -24,7 +24,7 @@ namespace sharpshapes
       /// <summary>
       /// The number of sides of this shape
       /// </summary>
-      public virtual int SidesCount { get; set; }  
+      abstract public int SidesCount { get; }  
       
       
       //return area as shape
@@ -32,20 +32,20 @@ namespace sharpshapes
       /// Calculates area of shape
       /// </summary>
       /// <returns>area of shape</returns>
-      public abstract decimal Area();
+      abstract public decimal Area();
 
       //return area as perimeter
       /// <summary>
       /// Calculates perimeter of shape
       /// </summary>
       /// <returns>returns perimeter of shape</returns>
-      public abstract int Perimeter();
+      abstract public int Perimeter();
 
       //resize shape by %
       /// <summary>
       ///Scales size of shape 
       /// </summary>
       /// <param name="percent">the percentage to scale the shape by</param>
-      public abstract void scale(int percent);
+      abstract public void scale(int percent);
     } 
 }
