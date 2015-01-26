@@ -86,7 +86,7 @@ namespace TestSharpShapes {
     }
 
     [TestMethod]
-      public void TestSidesCount()
+      public void TestRectangleSidesCount()
       {
           Rectangle rectangle = new Rectangle(1,5);
           Assert.AreEqual(4,rectangle.SidesCount);
