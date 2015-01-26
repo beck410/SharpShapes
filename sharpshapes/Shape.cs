@@ -10,7 +10,14 @@ namespace sharpshapes
 {
     abstract public class Shape
     {
+
       //Width, Height, Perimeter, Area, BorderColor, FillColor, NumberOfSides
+
+      public Shape(){
+        FillColor = Color.Bisque;
+        BorderColor = Color.Tomato;
+      }
+
       /// <summary>
       ///  specifies the interior color of the shape when drawn on screen
       /// </summary>
@@ -39,13 +46,13 @@ namespace sharpshapes
       /// Calculates perimeter of shape
       /// </summary>
       /// <returns>returns perimeter of shape</returns>
-      abstract public int Perimeter();
+      abstract public decimal Perimeter();
 
       //resize shape by %
       /// <summary>
       ///Scales size of shape 
       /// </summary>
       /// <param name="percent">the percentage to scale the shape by</param>
-      abstract public void scale(int percent);
+      abstract public void Scale(int percent);
     } 
 }
