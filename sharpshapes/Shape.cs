@@ -38,7 +38,7 @@ namespace sharpshapes
       /// <summary>
       /// Calculates area of shape
       /// </summary>
-      /// <returns>area of shape</returns>
+      /// <returns>area of shape</return
       abstract public decimal Area();
 
       //return area as perimeter
