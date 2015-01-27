@@ -4,8 +4,8 @@ using System.Linq;
 using System.Text;
 
 namespace sharpshapes {
-  public class Square : Rectangle{
+  public class Square : Rectangle {
 
-    public Square(int size) : base(size, size){} 
+    public Square(int edgeLength) : base(edgeLength, edgeLength){} 
  }
 }

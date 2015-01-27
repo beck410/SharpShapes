@@ -27,13 +27,6 @@ namespace TestSharpShapes {
       Square square = new Square(-1);
     }
 
-    //[TestMethod]
-    //[ExpectedException(typeof (ArgumentException))]
-    
-    //public void MyTestMethod() {  
-    //  Square square = new Square();
-    //
-
     [TestMethod]
     public void TestScaleSquare200Percent() {
       Square square = new Square(10);
@@ -71,7 +64,6 @@ namespace TestSharpShapes {
     public void TestScaleSquareNegativePercent() {
      Square square = new Square(10);
      square.Scale(-5);       
-     //Assert.AreEqual() ; 
     }
 
     [TestMethod]
@@ -79,13 +71,12 @@ namespace TestSharpShapes {
     public void TestScaleSquareZeroPercent() {
      Square square = new Square(10);
      square.Scale(0);       
-     //Assert.AreEqual() ; 
     }
 
     [TestMethod]
       public void TestSquareSidesCount()
       {
-          Square square = new Square(1);
+          Square square = new Square(2);
           Assert.AreEqual(4,square.SidesCount);
       }
 
