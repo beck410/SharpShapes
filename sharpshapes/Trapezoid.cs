@@ -4,16 +4,28 @@ using System.Linq;
 using System.Text;
 
 namespace sharpshapes {
-  public class Trapezoid : Shape {
+  public class Trapezoid : Quadrilateral {
     
     public Trapezoid(int bottom, int top, int height) {
-      if (bottom <= 0 || top <= 0 || height <= 0 || bottom == top)
+      if (bottom <= 0 || top <= 0 || height <= 0 || bottom <= top)
         throw new ArgumentException();
 
+      this.height = height;
       this.top = top;
       this.bottom = bottom;
-      this.height = height;
+
+      this.AcuteAngle = Decimal.Round((decimal)(Math.Atan((double)(height / WingLength())) * (180.0 / Math.PI)), 2);
+      this.ObtuseAngle = 180 - this.AcuteAngle;
     }
+
+    private decimal WingLength() {
+      decimal wingLength = (this.bottom - this.top) / 2;
+      return wingLength;
+    }
+
+    public decimal AcuteAngle { get; set; }
+
+    public decimal ObtuseAngle { get; set; }
 
     private decimal top;
       public decimal Top {
@@ -40,9 +52,7 @@ namespace sharpshapes {
       this.height = height * percent / 100;
     }
 
-    public override int SidesCount {
-      get { return 4; }
-    }
+
  
     public override decimal Area() {
       return (height/2) * (top + bottom);
@@ -53,9 +63,5 @@ namespace sharpshapes {
       double unknownSide = Math.Sqrt(Math.Pow((double)smallSides, (double)2) + Math.Pow((double)height, (double)2));
       return ((int)unknownSide * 2) + top + bottom; 
     }
-
-    public decimal AcuteAngle { get; set; }
-
-    public decimal ObtuseAngle { get; set; }
   }
 }

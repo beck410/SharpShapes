@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 
 namespace sharpshapes {
-  public class Rectangle : Shape {
+  public class Rectangle : Quadrilateral {
 
     private decimal width;
     public decimal Width {
@@ -32,10 +32,6 @@ namespace sharpshapes {
 
       this.width = width * percent / 100;
       this.height = height * percent / 100;
-    }
-
-    public override int SidesCount {
-      get { return 4; }
     }
  
     public override decimal Area() {
