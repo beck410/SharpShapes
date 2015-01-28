@@ -1,4 +1,5 @@
 ﻿using System;
+using sharpshapes;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,7 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
+using System.Reflection;
 
 namespace GrapeShapes {
   /// <summary>
@@ -20,6 +21,20 @@ namespace GrapeShapes {
   public partial class MainWindow : Window {
     public MainWindow() {
       InitializeComponent();
+      PopulateClassList();
     }
+
+    private void PopulateClassList() {
+      List<string> shapeClassList = new List<string>();
+      Type shapeType = typeof(Shape);
+
+      foreach (Type type in Assembly.GetAssembly(shapeType).GetTypes()) {
+        if (type.IsSubclassOf(shapeType) && !type.IsAbstract) {
+          shapeClassList.Add(type.Name);
+        }
+      }
+      ShapeTypeComboBox.ItemsSource = shapeClassList;
+    }
+
   }
 }

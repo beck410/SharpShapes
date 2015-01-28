@@ -93,6 +93,12 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\sharpshapes\sharpshapes.csproj">
+      <Project>{d2627345-7324-4c36-a1fb-a8ac61715914}</Project>
+      <Name>sharpshapes</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

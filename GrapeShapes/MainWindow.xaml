@@ -4,11 +4,7 @@
         Title="MainWindow" Height="350" Width="525">
     <Grid Margin="0,0,0,-4">
         <Button Content="Create" HorizontalAlignment="Left" Margin="417,17,0,0" VerticalAlignment="Top" Width="75" Background="#FFDE3232"/>
-        <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="43,15,0,0" FontFamily="Segoe UI Semibold" Name="ShapeTypeComboBox">
-            <ComboBoxItem Name="square">Square</ComboBoxItem>
-            <ComboBoxItem Name="trapezoid">Trapezoid</ComboBoxItem>
-            <ComboBoxItem Name="rectange">Rectangle</ComboBoxItem>
-        </ComboBox>
+        <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="43,15,0,0" FontFamily="Segoe UI Semibold" Name="ShapeTypeComboBox" />
             <TextBox HorizontalAlignment="Left" Height="23" Margin="188,15,0,0" TextWrapping="Wrap" Text="Shape Properties" VerticalAlignment="Top" Width="156" />
         <Canvas HorizontalAlignment="Left" Height="250" Margin="42,53,0,-180" VerticalAlignment="Top" Width="450">
             <Canvas.Background>
