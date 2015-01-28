@@ -1,0 +1,23 @@
+﻿<Window x:Class="GrapeShapes.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid Margin="0,0,0,-4">
+        <Button Content="Create" HorizontalAlignment="Left" Margin="417,17,0,0" VerticalAlignment="Top" Width="75" Background="#FFDE3232"/>
+        <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="43,15,0,0" FontFamily="Segoe UI Semibold" Name="ShapeTypeComboBox">
+            <ComboBoxItem Name="square">Square</ComboBoxItem>
+            <ComboBoxItem Name="trapezoid">Trapezoid</ComboBoxItem>
+            <ComboBoxItem Name="rectange">Rectangle</ComboBoxItem>
+        </ComboBox>
+            <TextBox HorizontalAlignment="Left" Height="23" Margin="188,15,0,0" TextWrapping="Wrap" Text="Shape Properties" VerticalAlignment="Top" Width="156" />
+        <Canvas HorizontalAlignment="Left" Height="250" Margin="42,53,0,-180" VerticalAlignment="Top" Width="450">
+            <Canvas.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFD4D2D2" Offset="0"/>
+                    <GradientStop Color="#FF877B7B" Offset="0.918"/>
+                </LinearGradientBrush>
+            </Canvas.Background>
+        </Canvas>
+
+    </Grid>
+</Window>
