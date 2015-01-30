@@ -7,7 +7,7 @@
             <RowDefinition Height="43*"/>
             <RowDefinition Height="280*"/>
         </Grid.RowDefinitions>
-        <Button Content="Create" HorizontalAlignment="Left" Margin="551,17,0,0" VerticalAlignment="Top" Width="75" Background="#FFDE3232"/>
+        <Button Content="Create" HorizontalAlignment="Left" Margin="551,17,0,0" VerticalAlignment="Top" Width="75" Background="#FFDE3232" Click="CreateShape"/>
         <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="43,15,0,0" FontFamily="Segoe UI Semibold" Name="ShapeTypeComboBox" SelectionChanged="ShapeType_SelectionChanged"/>
         <Canvas HorizontalAlignment="Left" Height="302" Margin="26,10,0,0" VerticalAlignment="Top" Width="625" Name="ShapeCanvas" Grid.Row="1">
             <Canvas.Background>
@@ -17,8 +17,8 @@
                 </LinearGradientBrush>
             </Canvas.Background>
         </Canvas>
-        <TextBox HorizontalAlignment="Left" Height="20" Margin="179,17,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="84" Name="arg1"/>
-        <TextBox HorizontalAlignment="Left" Height="20" Margin="286,17,0,0" TextWrapping="Wrap" Text="2" VerticalAlignment="Top" Width="84" Name="arg2"/>
-        <TextBox HorizontalAlignment="Left" Height="20" Margin="388,17,0,0" TextWrapping="Wrap" Text="3" VerticalAlignment="Top" Width="82" Name="arg3" />
+        <TextBox HorizontalAlignment="Left" Height="20" Margin="179,17,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="84" Name="arg1"/>
+        <TextBox HorizontalAlignment="Left" Height="20" Margin="286,17,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="84" Name="arg2"/>
+        <TextBox HorizontalAlignment="Left" Height="20" Margin="388,17,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="82" Name="arg3" />
     </Grid>
 </Window>

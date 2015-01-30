@@ -63,5 +63,9 @@ namespace sharpshapes {
       double unknownSide = Math.Sqrt(Math.Pow((double)smallSides, (double)2) + Math.Pow((double)height, (double)2));
       return ((int)unknownSide * 2) + top + bottom; 
     }
+
+    public override void DrawOnToCanvas(System.Windows.Controls.Canvas ShapeCanvas, int x, int y) {
+      throw new NotImplementedException();
+    }
   }
 }

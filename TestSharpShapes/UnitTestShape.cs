@@ -2,6 +2,11 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using sharpshapes;
 using System.Drawing;
+//using System.Windows.Shapes;
+//using System.Windows.Media;
+using System.Windows.Controls;
+
+
 
 namespace TestSharpShapes {
 
@@ -13,6 +18,10 @@ namespace TestSharpShapes {
     public class MyShape : Shape {
 
       public override void Scale(int percent) {
+        throw new NotImplementedException();
+      }
+
+      public override void DrawOnToCanvas(System.Windows.Controls.Canvas ShapeCanvas, int x, int y) {
         throw new NotImplementedException();
       }
 

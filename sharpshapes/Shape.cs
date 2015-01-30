@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
+using System.Windows.Controls;
 
 
 namespace sharpshapes
@@ -54,5 +55,7 @@ namespace sharpshapes
       /// </summary>
       /// <param name="percent">the percentage to scale the shape by</param>
       abstract public void Scale(int percent);
+
+      abstract public void DrawOnToCanvas(Canvas ShapeCanvas, int x, int y);
     } 
 }

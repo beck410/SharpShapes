@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Windows.Shapes;
+using System.Windows.Media;
+using System.Windows.Controls;
 
 namespace sharpshapes {
   public class Rectangle : Quadrilateral {
@@ -40,6 +43,10 @@ namespace sharpshapes {
     
     public override decimal Perimeter() {
       return (2 * Height) + (2 * Width);
+    }
+
+    public override void DrawOnToCanvas(System.Windows.Controls.Canvas ShapeCanvas, int x, int y) {
+      throw new NotImplementedException();
     }
   }
 }

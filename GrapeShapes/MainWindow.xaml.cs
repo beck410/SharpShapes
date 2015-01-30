@@ -13,7 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Reflection;
-//using System.Windows.Shapes;
+using System.Windows.Shapes;
 using System.Drawing;
 
 namespace GrapeShapes {
@@ -52,37 +52,37 @@ namespace GrapeShapes {
     //  ShapeCanvas.Children.Add(myPolygon);
     //}
 
-    //private void DrawSquare(int x, int y, Square square) {
+    private void DrawSquare(int x, int y, Square square) {
 
-    //  Polygon myPolygon = new Polygon();
+      Polygon myPolygon = new Polygon();
 
-    //  var squareBorderColor = square.BorderColor;
-    //  var strokeColor = System.Windows.Media.Color.FromArgb(squareBorderColor.A, squareBorderColor.R, squareBorderColor.G, squareBorderColor.B);
-    //  var strokeBrush = new SolidColorBrush(strokeColor);
-    //  myPolygon.Stroke = strokeBrush;
-    //  myPolygon.StrokeThickness = 2;
+      var squareBorderColor = square.BorderColor;
+      var strokeColor = System.Windows.Media.Color.FromArgb(squareBorderColor.A, squareBorderColor.R, squareBorderColor.G, squareBorderColor.B);
+      var strokeBrush = new SolidColorBrush(strokeColor);
+      myPolygon.Stroke = strokeBrush;
+      myPolygon.StrokeThickness = 2;
 
-    //  var squareFillColor = square.FillColor;
-    //  var fillColor = System.Windows.Media.Color.FromArgb(squareFillColor.A, squareFillColor.R, squareFillColor.G, squareFillColor.B); 
-    //  var fillBrush = new SolidColorBrush(fillColor);
-    //  myPolygon.Fill = fillBrush;
+      var squareFillColor = square.FillColor;
+      var fillColor = System.Windows.Media.Color.FromArgb(squareFillColor.A, squareFillColor.R, squareFillColor.G, squareFillColor.B);
+      var fillBrush = new SolidColorBrush(fillColor);
+      myPolygon.Fill = fillBrush;
 
-    //  int width = (int)square.Width;
-    //  int height = (int)square.Height;
+      int width = (int)square.Width;
+      int height = (int)square.Height;
 
-    //  System.Windows.Point Point1 = new System.Windows.Point(x, y);
-    //  System.Windows.Point Point2 = new System.Windows.Point(x+width, y);
-    //  System.Windows.Point Point3 = new System.Windows.Point(x+width, y+height);
-    //  System.Windows.Point Point4 = new System.Windows.Point(x, y+height);
+      System.Windows.Point Point1 = new System.Windows.Point(x, y);
+      System.Windows.Point Point2 = new System.Windows.Point(x + width, y);
+      System.Windows.Point Point3 = new System.Windows.Point(x + width, y + height);
+      System.Windows.Point Point4 = new System.Windows.Point(x, y + height);
 
-    //  PointCollection myPointCollection = new PointCollection();
-    //  myPointCollection.Add(Point1);
-    //  myPointCollection.Add(Point2);
-    //  myPointCollection.Add(Point3);
-    //  myPointCollection.Add(Point4);
-    //  myPolygon.Points = myPointCollection;
-    //  ShapeCanvas.Children.Add(myPolygon);
-    //}
+      PointCollection myPointCollection = new PointCollection();
+      myPointCollection.Add(Point1);
+      myPointCollection.Add(Point2);
+      myPointCollection.Add(Point3);
+      myPointCollection.Add(Point4);
+      myPolygon.Points = myPointCollection;
+      ShapeCanvas.Children.Add(myPolygon);
+    }
 
 
     private void PopulateClassList() {
@@ -98,15 +98,20 @@ namespace GrapeShapes {
     }
 
     public static int ArgumentCountFor(string className) {
-      Type classType = Assembly.GetAssembly(typeof(Shape)).GetTypes().Where(shapeType => shapeType.Name == className).First();
+      Type classType = getShapeTypeOf(className);
       ConstructorInfo classConstructor = classType.GetConstructors().First();
       return classConstructor.GetParameters().Length;
     }
 
-    public static Shape InstantiateWithArguments(string className, object[] args) {
-      Type classType = Type.GetType(className);
+    private static Type getShapeTypeOf(string className) {
+      Type classType = Assembly.GetAssembly(typeof(sharpshapes.Shape)).GetTypes().Where(shapeType => shapeType.Name == className).First();
+      return classType;
+    }
+
+    public static sharpshapes.Shape InstantiateWithArguments(string className, object[] args) {
+      Type classType = getShapeTypeOf(className);
       ConstructorInfo classConstructor = classType.GetConstructors().First();
-      return (Shape)classConstructor.Invoke(args);
+      return (sharpshapes.Shape)classConstructor.Invoke(args);
     }
 
     private void ShapeType_SelectionChanged(object sender, SelectionChangedEventArgs e) {
@@ -117,9 +122,21 @@ namespace GrapeShapes {
       arg1.IsEnabled = true;
       arg2.IsEnabled = (argCount > 1);
       arg3.IsEnabled = (argCount > 2);
-      arg1.Clear();
-      arg2.Clear();
-      arg3.Clear();
+      arg1.Text = "0";
+      arg2.Text = "0"; 
+      arg3.Text = "0";
+    }
+
+    private void CreateShape(object sender, RoutedEventArgs e) {
+      //retrieve correct no. of  arguments
+      string className = (String)ShapeTypeComboBox.SelectedValue;
+      int argCount = ArgumentCountFor(className);
+       object[] potentialArgs = new object[] { Int32.Parse(arg1.Text), Int32.Parse(arg2.Text), Int32.Parse(arg3.Text) };
+      //create shape
+      sharpshapes.Shape shape = InstantiateWithArguments(className, potentialArgs.Take(argCount).ToArray());
+
+      //draw shape
+      shape.DrawOnToCanvas(ShapeCanvas, 50,50);
     }
   }
 }
