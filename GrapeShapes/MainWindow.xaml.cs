@@ -111,29 +111,15 @@ namespace GrapeShapes {
 
     private void ShapeType_SelectionChanged(object sender, SelectionChangedEventArgs e) {
       // TODO: Enable/Disable Inputs based on the number of required arguments.
-      arg1.Text = "";
-      arg2.Text = "";
-      arg3.Text = "";
-      string className = (String)ShapeTypeComboBox.SelectedValue;
-      //arg1.Text = ArgumentCountFor(className).ToString();
 
-      switch (className) {
-        case "Square":
-          arg1.Visibility = Visibility.Visible;
-          arg2.Visibility = Visibility.Hidden;
-          arg3.Visibility = Visibility.Hidden;
-          break;
-        case "Rectangle":
-          arg1.Visibility = Visibility.Visible;
-          arg2.Visibility = Visibility.Visible;
-          arg3.Visibility = Visibility.Hidden;
-          break;
-        case "Trapezoid":
-          arg1.Visibility = Visibility.Visible;
-          arg2.Visibility = Visibility.Visible;
-          arg3.Visibility = Visibility.Visible;
-          break;
-      }
+      string className = (String)ShapeTypeComboBox.SelectedValue;
+      int argCount = ArgumentCountFor(className);
+      arg1.IsEnabled = true;
+      arg2.IsEnabled = (argCount > 1);
+      arg3.IsEnabled = (argCount > 2);
+      arg1.Clear();
+      arg2.Clear();
+      arg3.Clear();
     }
   }
 }
