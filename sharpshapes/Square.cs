@@ -7,6 +7,7 @@ using System.Windows.Media;
 using System.Windows.Controls;
 
 namespace sharpshapes {
-  public class Square : Rectangle { 
+  public class Square : Rectangle {
+    public Square(int edgeLength) : base(edgeLength, edgeLength) { }
  }
 }

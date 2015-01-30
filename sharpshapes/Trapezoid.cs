@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Windows.Media;
+using System.Windows.Controls;
+using System.Windows.Shapes;
 
 namespace sharpshapes {
   public class Trapezoid : Quadrilateral {
@@ -65,7 +68,37 @@ namespace sharpshapes {
     }
 
     public override void DrawOnToCanvas(System.Windows.Controls.Canvas ShapeCanvas, int x, int y) {
-      throw new NotImplementedException();
+      Polygon trapezoid = new Polygon();
+      
+      //broder color
+      System.Drawing.Color drawingBorderColor = this.BorderColor;
+      System.Windows.Media.Color strokeColor = System.Windows.Media.Color.FromArgb(drawingBorderColor.A, drawingBorderColor.R, drawingBorderColor.G, drawingBorderColor.B);
+      SolidColorBrush strokeBrush = new SolidColorBrush(strokeColor);
+      trapezoid.Stroke = strokeBrush;
+      
+      //fill color
+      System.Drawing.Color drawingFillColor = this.FillColor;
+      System.Windows.Media.Color fillColor = System.Windows.Media.Color.FromArgb(drawingFillColor.A, drawingFillColor.R, drawingFillColor.G, drawingFillColor.B);
+      SolidColorBrush fillBrush = new SolidColorBrush(fillColor);
+      trapezoid.Fill = fillBrush;
+      
+      int trapezoidHeight = (int)this.Height;
+      int trapezoidTop = (int)this.Top;
+      int trapezoidBottom = (int)this.Bottom;
+      int Wing = (int)this.WingLength();
+
+      System.Windows.Point Point1 = new System.Windows.Point(x,y);
+      System.Windows.Point Point2 = new System.Windows.Point(x-trapezoidTop,y);
+      System.Windows.Point Point3 = new System.Windows.Point(x - trapezoidTop - Wing,y+trapezoidHeight);
+      System.Windows.Point Point4 = new System.Windows.Point(x+Wing,y+trapezoidHeight);
+
+      PointCollection myPointCollection = new PointCollection();
+      myPointCollection.Add(Point1);
+      myPointCollection.Add(Point2);
+      myPointCollection.Add(Point3);
+      myPointCollection.Add(Point4);
+      trapezoid.Points = myPointCollection;
+      ShapeCanvas.Children.Add(trapezoid);
     }
   }
 }
