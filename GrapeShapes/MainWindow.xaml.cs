@@ -117,19 +117,22 @@ namespace GrapeShapes {
       string className = (String)ShapeTypeComboBox.SelectedValue;
       //arg1.Text = ArgumentCountFor(className).ToString();
 
-      if(className == "Square"){
-        arg1.Visibility = Visibility.Visible;
-        arg2.Visibility = Visibility.Hidden;
-        arg3.Visibility = Visibility.Hidden;
-      }
-      else if (className == "Rectangle") {
-        arg1.Visibility = Visibility.Visible;
-        arg2.Visibility = Visibility.Visible;
-        arg3.Visibility = Visibility.Hidden;
-      } else if(className == "Trapezoid"){
-        arg1.Visibility = Visibility.Visible;
-        arg2.Visibility = Visibility.Visible;
-        arg3.Visibility = Visibility.Visible;
+      switch (className) {
+        case "Square":
+          arg1.Visibility = Visibility.Visible;
+          arg2.Visibility = Visibility.Hidden;
+          arg3.Visibility = Visibility.Hidden;
+          break;
+        case "Rectangle":
+          arg1.Visibility = Visibility.Visible;
+          arg2.Visibility = Visibility.Visible;
+          arg3.Visibility = Visibility.Hidden;
+          break;
+        case "Trapezoid":
+          arg1.Visibility = Visibility.Visible;
+          arg2.Visibility = Visibility.Visible;
+          arg3.Visibility = Visibility.Visible;
+          break;
       }
     }
   }
