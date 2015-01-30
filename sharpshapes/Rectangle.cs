@@ -46,7 +46,35 @@ namespace sharpshapes {
     }
 
     public override void DrawOnToCanvas(System.Windows.Controls.Canvas ShapeCanvas, int x, int y) {
-      throw new NotImplementedException();
+       Polygon rectangle = new Polygon();
+      
+      //broder color
+      System.Drawing.Color drawingBorderColor = this.BorderColor;
+      System.Windows.Media.Color strokeColor = System.Windows.Media.Color.FromArgb(drawingBorderColor.A, drawingBorderColor.R, drawingBorderColor.G, drawingBorderColor.B);
+      SolidColorBrush strokeBrush = new SolidColorBrush(strokeColor);
+      rectangle.Stroke = strokeBrush;
+      
+      //fill color
+      System.Drawing.Color drawingFillColor = this.FillColor;
+      System.Windows.Media.Color fillColor = System.Windows.Media.Color.FromArgb(drawingFillColor.A, drawingFillColor.R, drawingFillColor.G, drawingFillColor.B);
+      SolidColorBrush fillBrush = new SolidColorBrush(fillColor);
+      rectangle.Fill = fillBrush;
+
+      int rectangleWidth = (int)this.Width;
+      int rectangleHeight = (int)this.Height;
+
+      System.Windows.Point Point1 = new System.Windows.Point(x, y);
+      System.Windows.Point Point2 = new System.Windows.Point(x + rectangleWidth, y);
+      System.Windows.Point Point3 = new System.Windows.Point(x + rectangleWidth, y + rectangleHeight);
+      System.Windows.Point Point4 = new System.Windows.Point(x, y + rectangleHeight);
+
+      PointCollection myPointCollection = new PointCollection();
+      myPointCollection.Add(Point1);
+      myPointCollection.Add(Point2);
+      myPointCollection.Add(Point3);
+      myPointCollection.Add(Point4);
+      rectangle.Points = myPointCollection;
+      ShapeCanvas.Children.Add(rectangle);
     }
   }
 }
