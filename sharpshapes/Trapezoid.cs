@@ -88,9 +88,9 @@ namespace sharpshapes {
       int Wing = (int)this.WingLength();
 
       System.Windows.Point Point1 = new System.Windows.Point(x,y);
-      System.Windows.Point Point2 = new System.Windows.Point(x-trapezoidTop,y);
-      System.Windows.Point Point3 = new System.Windows.Point(x - trapezoidTop - Wing,y+trapezoidHeight);
-      System.Windows.Point Point4 = new System.Windows.Point(x+Wing,y+trapezoidHeight);
+      System.Windows.Point Point2 = new System.Windows.Point(x + Wing, y - trapezoidHeight);
+      System.Windows.Point Point3 = new System.Windows.Point(x + trapezoidTop + Wing, y - trapezoidHeight);
+      System.Windows.Point Point4 = new System.Windows.Point(x + trapezoidBottom, y);
 
       PointCollection myPointCollection = new PointCollection();
       myPointCollection.Add(Point1);
